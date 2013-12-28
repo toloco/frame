@@ -8,8 +8,8 @@ Ajax load modal
 
 Requeriments:
 ===============================================================================
-jquery >= 1.8
-bootstrap >= 3.0 (only if you plan to use modals)
+* Jquery >= 1.8
+* Bootstrap >= 3.0 (only if you plan to use modals)
 
 
 
