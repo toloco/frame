@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEST</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+	<style type="text/css">
+		#main { background-color: lime; margin-top: 20px; min-height: 400px; }
+		#mainloader { display: none; }
+
+	</style>
+</head>
+<body>
+
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-3">
+				<h1>Frame.js TEST</h1>
+				<p class="lead">Just the common examples</p>
+				<p> <a class="btn btn-success ajax" href="ajax-center.html">AJAX</a> </p>
+				<p> <a class="btn btn-success modalist" href="ajax-center.html">Modal</a> </p>
+				<p> <a class="btn btn-success confirm" href="ajax-center.html" confirm-message="Sure wanna load and redirect?">Confirm and Redirect</a> </p>
+				<p> <a class="btn btn-success confirm ajax" href="ajax-center.html" confirm-message="Sure wanna load and load into main?">Confirm and AJAX</a> </p>
+				<p> <a class="btn btn-success confirm modalist" href="ajax-center.html" confirm-message="Sure wanna load and show a modal?">Confirm and Modal</a> </p>
+				
+			</div>
+
+			<main class="col-md-9"> 
+				<div id="mainloader"><img src='' alt='' /></div>
+				<div id="main"> </div>
+			</main>
+			
+		</div>    
+    </div> <!-- /container -->
+
+    <div id="theModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" > 
+            <div class="modal-dialog"><div class="modal-content"></div></div>
+    </div> <!-- theModal -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<!-- The Frame lib -->
+	<script src="frame.js"></script>
+	<!-- Frame conf -->
+	<script type="text/javascript">
+	    $(document).ready(function (){
+            // bind ajax class for link ajax loaaaaders
+            Frame.init('.ajax', '.modalist'); 
+        });
+	</script>
+
+</body>
+</html>
+
