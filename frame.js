@@ -164,7 +164,7 @@ Frame = {
 	loadMain : function (data){
 
 		var test = $(data).find('#' + Frame.config["ajax-frame"]);
-		if ( test ) {
+		if ( test.length > 0 ) {
 			$('#' + Frame.config["ajax-frame"]).replaceWith(test);
 		}
 		else {
