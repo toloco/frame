@@ -30,9 +30,11 @@
 				<h1>Frame.js TEST</h1>
 				<p class="lead">Just the common examples</p>
 				<p> <a class="btn btn-success ajax" href="test2.html">AJAX</a> </p>
+				<p> <a class="btn btn-success ajax" href="test2.html" history="false" >AJAX no history</a> </p>
 				<p> <a class="btn btn-success modalist" href="ajax-center.html">Modal</a> </p>
 				<p> <a class="btn btn-success confirm" href="ajax-center.html" confirm-message="Sure wanna load and redirect?">Confirm and Redirect</a> </p>
-				<p> <a class="btn btn-success confirm ajax" href="ajax-center.html" confirm-message="Sure wanna load and load into main?">Confirm and AJAX</a> </p>
+				<p> <a class="btn btn-success confirm ajax" href="ajax-center.html" confirm-message="Sure wanna load and load into main?" >Confirm and AJAX</a> </p>
+				<p> <a class="btn btn-success confirm ajax" href="ajax-center.html" confirm-message="Sure wanna load and load into main?" history="false" >Confirm and AJAX no history</a> </p>
 				<p> <a class="btn btn-success confirm modalist" href="ajax-center.html" confirm-message="Sure wanna load and show a modal?">Confirm and Modal</a> </p>
 				
 			</div>
@@ -56,7 +58,6 @@
 	<!-- Frame conf -->
 	<script type="text/javascript">
 	    $(document).ready(function (){
-            // bind ajax class for link ajax loaaaaders
             Frame.init(
             	{ 
             		//Classes that points the elements

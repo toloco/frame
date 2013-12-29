@@ -65,7 +65,7 @@ Frame = {
 		});
 
 		// append modal into body
-		$('body').append('<div id="'+Frame.config["modal-frame"]+'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content"></div></div></div>');
+		$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content"></div></div></div>');
 
 	},
 
@@ -107,15 +107,14 @@ Frame = {
 	/**
 	*	Ajax url loader
 	*/
-	loadPage : function (routing)
+	loadPage : function (routing, element)
 	{
 
 		// ---------------- CHECK FOR HISTORY UPDATE
 		//add the url to the browser history, back button are there! 
-		if (Frame.config["history-update"] == true ) {
+		if (Frame.config["history-update"] == true && ! ( $(element).attr("history") == "false" ) ) {
 			history.pushState({}, "", routing);
 		};
-		
 
 		//set u can reload
 		Frame.__reloaded__ = false;
@@ -159,7 +158,6 @@ Frame = {
 		});
 	},
 
-
 	/**
 	*	loads some html at main
 	*/
@@ -190,4 +188,3 @@ Frame = {
 		$('#' + Frame.config["modal-frame"]).modal('close');
 	},
 }
-
