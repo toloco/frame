@@ -65,7 +65,10 @@ Frame = {
 		});
 
 		// append modal into body
-		$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content"></div></div></div>');
+		if ( $( '#'+ Frame.config["modal-frame"]).length == 0  ) {
+			$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content"></div></div></div>');	
+		};
+		
 
 	},
 
