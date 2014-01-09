@@ -107,3 +107,5 @@ As usual in frame.js ;), add the class **confirm** or the **confirm-marker** if 
 	<a class="btn confirm modalist" href="ajax-center.html" confirm-message="Sure X ?">
 ```
 
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/24c929b54abb9c96fc971da17c63a0fc "githalytics.com")](http://githalytics.com/toloco/frame)
