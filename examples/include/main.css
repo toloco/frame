@@ -1,0 +1,19 @@
+#main { 
+	background-color: #F9F9FF; 
+	border:1px solid #444; 
+	margin-top: 20px; 
+	min-height: 450px; 
+	padding: 30px;
+}
+#mainloader { 
+	display: none; 
+	background-color: black; 
+	height: 100%; 
+	left: 0; 
+	opacity: 0.7; 
+	padding-top: 100px;
+	position: fixed; 
+	text-align: center; 
+	top: 0; 
+	width: 100%;
+}
