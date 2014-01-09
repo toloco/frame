@@ -42,6 +42,8 @@ Frame = {
 
 	__reloaded__ : true,
 
+	__picture_regex__ : /\.(png|jpg|jpeg|gif)$/ ,
+
 	/**
 	*	Init the Frame, includes ajax link loader
 	*/
@@ -66,7 +68,7 @@ Frame = {
 
 		// append modal into body
 		if ( $( '#'+ Frame.config["modal-frame"]).length == 0  ) {
-			$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content"></div></div></div>');	
+			$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content text-center"></div></div></div>');	
 		};
 		
 
@@ -146,19 +148,33 @@ Frame = {
 	*/
 	loadPageModal : function (routing)
 	{
-		$.ajax({
-			type: "GET",
-			url: routing,
-			data :jQuery.param({"modal" : true}),
-			dataType: "html",
-			success: function(data) {
-				Frame.loadModal(data);
-				Frame.bind(); //rebind all page ajax links, cos there are some news
-			},
-			error: function(jqXHR, textStatus, errorThrown){
-				alert("Error, no se ha podido crear");
-			}
-		});
+
+		/*
+			If the url is a picture don't use ajax, normal load instead
+		*/
+		if (routing.match(Frame.__picture_regex__)) {
+			var data = "<img src=\""+routing+"\" style=\"margin:auto;\">";
+			Frame.loadModal(data);
+		}
+		else
+		{
+			$.ajax({
+				type: "GET",
+				url: routing,
+				data :jQuery.param({"modal" : true}),
+				dataType: "html",
+				success: function(data) {
+					Frame.loadModal(data);
+					Frame.bind(); //rebind all page ajax links, cos there are some news
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					alert("Error, no se ha podido crear");
+				}
+			});			
+		}
+			
+
+
 	},
 
 	/**
