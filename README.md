@@ -19,7 +19,7 @@ Configuration:
 Add this javascript on your html code ( after jquery definition )
 ```javascript
     $(document).ready(function (){
-        Frame.init(); 
+        Frame.init();
     });
 ```
 
@@ -27,7 +27,7 @@ Or the full config (just overiding default)
 ```javascript
     $(document).ready(function (){
         Frame.init(
-        	{ 
+        	{
         		//Classes that points the elements
         		'ajax-marker'    : 'ajax',
         		'modal-marker'   : 'modalist',
@@ -40,7 +40,7 @@ Or the full config (just overiding default)
         		'ajax-loader'    : 'mainloader',
         		'modal-frame'    : 'theModal',
         	}
-        ); 
+        );
     });
 ```
 
@@ -83,9 +83,17 @@ Or use bootstrap way inside the modal
 ```html
 	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 ```
+##### New, full size pictures
+Add pictures links very easy with a full size modal view
+```
+    <a class="modalist" href="path/to/fullsize.png">
+        <img src="path/to/thumbnail.png">
+        <label> Click me to enlarge</label>
+    </a>
+```
 
 #### Confirm links:
-Add a confirm message (like alerts, I know they are ugly but I promise making them nicer) and still having the ajax and modal behavior. 
+Add a confirm message (like alerts, I know they are ugly but I promise making them nicer) and still having the ajax and modal behavior.
 
 
 As usual in frame.js ;), add the class **confirm** or the **confirm-marker** if you overide it, set the message with the attribute **confirm-message="MESAGE"**
