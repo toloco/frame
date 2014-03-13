@@ -26,7 +26,7 @@ Frame = {
 
 
 	//Defaults
-	config : { 
+	config : {
 		//Classes that points the elements
 		'ajax-marker'    : 'ajax',
 		'modal-marker'   : 'modalist',
@@ -54,28 +54,25 @@ Frame = {
 
 		Frame.bind();
 
-		/*
-			On backbutton event, reload url, cos pushState doesnt refresh, and 
-			page is loaded by ajax and never is cached
+		/*On backbutton event, reload url, cos pushState doesnt refresh, and
+		  is loaded by ajax and never is cached
 		*/
 		window.addEventListener('popstate', function(event) {
 			event.stopPropagation();
 			if ( ! Frame.__reloaded__ ) {
-				window.location.reload(true);	
+				window.location.reload(true);
 				Frame.__reloaded__ = true;
 			};
 		});
 
 		// append modal into body
 		if ( $( '#'+ Frame.config["modal-frame"]).length == 0  ) {
-			$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content text-center"></div></div></div>');	
+			$('body').append('<div id="' + Frame.config["modal-frame"] + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="The modal" aria-hidden="false" ><div class="modal-dialog"><div id="theModalContent" class="modal-content text-center"></div></div></div>');
 		};
-		
-
 	},
 
 	/**
-	*	Binds the event onclick to an ajax loader 
+	*	Binds the event onclick to an ajax loader
 	*/
 	bind : function (){
 
@@ -83,13 +80,13 @@ Frame = {
 		$('.' + Frame.config['ajax-marker']).click(function(event){
         	event.preventDefault();
             Frame.loadPage( $(this).attr('href'), this );
-        }); 
+        });
 
 		$('.' + Frame.config['modal-marker']).unbind();
 		$('.' + Frame.config['modal-marker']).click(function(event){
         	event.preventDefault();
             Frame.loadPageModal( $(this).attr('href'), this );
-        }); 
+        });
 
         $('.' + Frame.config['confirm-marker']).unbind();
 		$('.' + Frame.config['confirm-marker']).click(function(event){
@@ -102,11 +99,11 @@ Frame = {
 				else if ( $(this).hasClass(Frame.config['modal-marker']) ) {
 					Frame.loadPageModal( $(this).attr('href'), this );
 				}
-				else { 
-					window.location = $(this).attr('href'); 
-				}	
+				else {
+					window.location = $(this).attr('href');
+				}
 			}
-        }); 
+        });
 	},
 
 	/**
@@ -115,13 +112,14 @@ Frame = {
 	loadPage : function (routing, element)
 	{
 
-		// ---------------- CHECK FOR HISTORY UPDATE
-		//add the url to the browser history, back button are there! 
-		if (Frame.config["history-update"] == true && ! ( $(element).attr("history") == "false" ) ) {
+		//add the url to the browser history, back button are there!
+		if (Frame.config["history-update"] == true
+			&& ! ( $(element).attr("history") == "false" ) )
+		{
 			history.pushState({}, "", routing);
-		};
+		}
 
-		//set u can reload
+		//set can reload
 		Frame.__reloaded__ = false;
 
 		$('#' + Frame.config["ajax-loader"]).show();
@@ -133,7 +131,9 @@ Frame = {
 			dataType: "html",
 			success: function(data) {
 				Frame.loadMain(data);
-				Frame.bind(); //rebind all page ajax links, cos there are some news
+
+				//rebind all page ajax links, cos there are some news
+				Frame.bind();
 				$('#' + Frame.config["ajax-loader"]).hide();
 			},
 			error: function(jqXHR, textStatus, errorThrown){
@@ -149,9 +149,7 @@ Frame = {
 	loadPageModal : function (routing)
 	{
 
-		/*
-			If the url is a picture don't use ajax, normal load instead
-		*/
+		//If the url is a picture don't use ajax, normal load instead
 		if (routing.match(Frame.__picture_regex__)) {
 			var data = "<img src=\""+routing+"\" style=\"margin:auto;\">";
 			Frame.loadModal(data);
@@ -165,14 +163,16 @@ Frame = {
 				dataType: "html",
 				success: function(data) {
 					Frame.loadModal(data);
-					Frame.bind(); //rebind all page ajax links, cos there are some news
+
+					//rebind all page ajax links, cos there are some news
+					Frame.bind();
 				},
 				error: function(jqXHR, textStatus, errorThrown){
 					alert("Error, no se ha podido crear");
 				}
-			});			
+			});
 		}
-			
+
 
 
 	},
@@ -187,7 +187,7 @@ Frame = {
 			$('#' + Frame.config["ajax-frame"]).replaceWith(test);
 		}
 		else {
-			$('#' + Frame.config["ajax-frame"]).html(data);	
+			$('#' + Frame.config["ajax-frame"]).html(data);
 		}
 
 	},
