@@ -1,6 +1,6 @@
 FRAME.js
 ===============================================================================
-
+Ajax and modals pattern, enjoy the power of google+ like navigation
 
 Ajax load into a main div and updates browser history
 Ajax load modal
