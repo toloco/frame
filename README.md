@@ -1,8 +1,8 @@
 FRAME.js
 ===============================================================================
-Ajax and modals pattern, enjoy the power of google+ like navigation
+Ajax and modals pattern with pushState update, enjoy the power of google+ like navigation
 
-Ajax load into a main div and updates browser history
+Ajax load into a main div and updates browser history with pushState
 Ajax load modal
 Open in new tab will work if you take care
 
